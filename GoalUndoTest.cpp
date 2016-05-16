@@ -4,7 +4,7 @@
 
 #include <gtest/gtest.h>
 #include "GoalUndo.h"
- 
+
 class GoalUndoTest : public ::testing::Test
 {
 	protected:
@@ -13,7 +13,7 @@ class GoalUndoTest : public ::testing::Test
 		virtual void SetUp(){}
 		virtual void TearDown(){}
 };
-
+//Sanity test
 TEST(GoalUndoTest, sanityCheck)
 {
 	ASSERT_TRUE(true);
