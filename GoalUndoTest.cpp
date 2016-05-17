@@ -14,10 +14,11 @@ class GoalUndoTest : public ::testing::Test
 		virtual void SetUp(){}
 		virtual void TearDown(){}
 };
+
 //Sanity check test
 TEST(GoalUndoTest, sanityCheck)
 {
-	ASSERT_TRUE(true);
+	ASSERT_TRUE(true);//this check shows that testing environment is set
 }
 
 //Just check empty goal
@@ -146,23 +147,6 @@ TEST(GoalUndoTest,UndoWorkingUpperBound)
   ASSERT_TRUE(flag);
 }
 
-/*
-//this test fails
-//last operation for overloded
-TEST(GoalUndoTest,LastOpUndone)
-{
-  GoalUndo G;
-  bool flag=true;
-  G.addOperation("GoalNameTest","Test1");
-  G.undoOperation("Test1");
-  if(!(G.getGoal().compare("GoalNameTest")))
-  {
-    flag=false;
-  }
-  ASSERT_TRUE(flag);
-}
-*/
-
 //regular undo operation non overloded
 TEST(GoalUndoTest,UndoOpWork)
 {
@@ -240,6 +224,24 @@ TEST(GoalUndoTest,CheckLastTake)
   if(!(G.getGoal().compare("")))
   {
     flag=true;
+  }
+  ASSERT_TRUE(flag);
+}
+
+
+//comment out this one to check other passing tests
+//also comment this one out while doing mutation testing
+//this test fails
+//last operation for overloded
+TEST(GoalUndoTest,LastOpUndone)
+{
+  GoalUndo G;
+  bool flag=true;
+  G.addOperation("GoalNameTest","Test1");
+  G.undoOperation("Test1");
+  if(!(G.getGoal().compare("GoalNameTest")))
+  {
+    flag=false;
   }
   ASSERT_TRUE(flag);
 }
